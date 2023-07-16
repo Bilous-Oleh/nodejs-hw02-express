@@ -1,24 +1,28 @@
-const fs = require("fs/promises");
-const path = require("path");
-const { nanoid } = require("nanoid");
+// const fs = require("fs/promises");
+// const path = require("path");
+// const { nanoid } = require("nanoid");
+
+import fs from "fs/promises";
+import path from "path";
+import { nanoid } from "nanoid";
 
 const contactsPath = path.resolve("models", "contacts.json");
 
 const updateContactsStorage = (contacts) =>
   fs.writeFile(contactsPath, JSON.stringify(contacts, null, 2));
 
-const listContacts = async () => {
+export const listContacts = async () => {
   const data = await fs.readFile(contactsPath);
   return JSON.parse(data);
 };
 
-const getContactById = async (id) => {
+export const getContactById = async (id) => {
   const contacts = await listContacts();
   const result = contacts.find((contact) => contact.id === id);
   return result || null;
 };
 
-const addContact = async ({ name, email, phone }) => {
+export const addContact = async ({ name, email, phone }) => {
   const contacts = await listContacts();
 
   const newContact = {
@@ -32,7 +36,7 @@ const addContact = async ({ name, email, phone }) => {
   return newContact;
 };
 
-const updateContact = async (id, { name, email, phone }) => {
+export const updateContact = async (id, { name, email, phone }) => {
   const contacts = await listContacts();
   const indexContact = contacts.findIndex((contact) => contact.id === id);
   if (indexContact === -1) {
@@ -43,7 +47,7 @@ const updateContact = async (id, { name, email, phone }) => {
   return contacts[indexContact];
 };
 
-const removeContact = async (id) => {
+export const removeContact = async (id) => {
   const contacts = await listContacts();
   const indexContact = contacts.findIndex((contact) => contact.id === id);
   if (indexContact === -1) {
@@ -53,7 +57,7 @@ const removeContact = async (id) => {
   await updateContactsStorage(contacts);
   return result;
 };
-module.exports = {
+export default {
   listContacts,
   getContactById,
   removeContact,
