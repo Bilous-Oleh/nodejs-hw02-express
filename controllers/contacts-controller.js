@@ -2,10 +2,6 @@ import contacts from "../models/contacts.js";
 import { ctrlWrapper } from "../decorators/index.js";
 import { HttpError } from "../helpers/index.js";
 
-// const contacts = require("../models/contacts.js");
-// const ctrlWrapper = require("../decorators/ctrlWrapper.js");
-// const { HttpError } = require("../helpers/index.js");
-
 const getAll = async (req, res) => {
   const result = await contacts.listContacts();
   res.json(result);

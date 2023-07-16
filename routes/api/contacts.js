@@ -1,13 +1,3 @@
-// const express = require("express");
-
-// const contactsController = require("../../controllers/contacts-controller.js");
-
-// const contactsSchemas = require("../../schemas/contacts-schemas.js");
-
-// const { validateBody } = require("../../decorators/index.js");
-
-// const { isEmptyBody } = require("../../middlewars/index.js");
-
 import express from "express";
 import contactsController from "../../controllers/contacts-controller.js";
 import contactsSchemas from "../../schemas/contacts-schemas.js";

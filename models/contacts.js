@@ -1,7 +1,3 @@
-// const fs = require("fs/promises");
-// const path = require("path");
-// const { nanoid } = require("nanoid");
-
 import fs from "fs/promises";
 import path from "path";
 import { nanoid } from "nanoid";
