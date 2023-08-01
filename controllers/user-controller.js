@@ -86,7 +86,6 @@ const updateAvatar = async (req, res) => {
   const { _id } = req.user;
   const { path: tempUpload, originalname } = req.file;
   const filename = `${_id}_${originalname}`;
-  const resultUpload = path.join(avatarsDir, filename);
 
   const img = await jimp.read(tempUpload);
   await img.autocrop().cover(250, 250).writeAsync(tempUpload);
