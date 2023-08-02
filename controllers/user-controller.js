@@ -85,6 +85,7 @@ const logout = async (req, res) => {
 const updateAvatar = async (req, res) => {
   const { _id } = req.user;
   const { path: tempUpload, originalname } = req.file;
+  const resultUpload = path.join(avatarsDir, originalname);
   const filename = `${_id}_${originalname}`;
 
   const img = await jimp.read(tempUpload);
