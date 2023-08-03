@@ -6,7 +6,7 @@ import { validateBody } from "../../decorators/index.js";
 
 import usersSchemas from "../../schemas/users-schemas.js";
 
-import { authenticate } from "../../middlewars/index.js";
+import { authenticate, upload } from "../../middlewars/index.js";
 
 const usersRouter = express.Router();
 
@@ -25,5 +25,12 @@ usersRouter.post(
 usersRouter.get("/current", authenticate, userController.getCurrent);
 
 usersRouter.post("/logout", authenticate, userController.logout);
+
+usersRouter.patch(
+  "/avatars",
+  authenticate,
+  upload.single("avatar"),
+  userController.updateAvatar
+);
 
 export default usersRouter;
