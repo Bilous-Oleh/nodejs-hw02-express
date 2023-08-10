@@ -85,35 +85,35 @@ const { PORT, DB_HOST_TEST } = process.env;
 //     expect(body.user.email).toBe(correctData.email);
 //   });
 
-//   // test("test login with incorrect email", async () => {
-//   //   const incorrectEmail = {
-//   //     email: "2005net@gmail.com",
-//   //     password: "123456",
-//   //   };
-//   //   const { statusCode, body } = await request(app)
-//   //     .post("/users/login")
-//   //     .send(incorrectEmail);
+// test("test login with incorrect email", async () => {
+//   const incorrectEmail = {
+//     email: "2005net@gmail.com",
+//     password: "123456",
+//   };
+//   const { statusCode, body } = await request(app)
+//     .post("/users/login")
+//     .send(incorrectEmail);
 
-//   //   expect(statusCode).toBe(401);
-//   //   expect(body).not.toHaveProperty("token");
-//   //   expect(body).toMatchObject({
-//   //     message: "Email or password is wrong",
-//   //   });
-//   // });
+//   expect(statusCode).toBe(401);
+//   expect(body).not.toHaveProperty("token");
+//   expect(body).toMatchObject({
+//     message: "Email or password is wrong",
+//   });
+// });
 
-//   // test("test login with invalid email", async () => {
-//   //   const invalidEmail = {
-//   //     email: "2005net2005gmail.com",
-//   //     password: "123456",
-//   //   };
-//   //   const { statusCode, body } = await request(app)
-//   //     .post("/users/login")
-//   //     .send(invalidEmail);
+// test("test login with invalid email", async () => {
+//   const invalidEmail = {
+//     email: "2005net2005gmail.com",
+//     password: "123456",
+//   };
+//   const { statusCode, body } = await request(app)
+//     .post("/users/login")
+//     .send(invalidEmail);
 
-//   //   expect(statusCode).toBe(400);
-//   //   expect(body).not.toHaveProperty("token");
-//   //   expect(body).toMatchObject({
-//   //     message: "Field email is invalid",
-//   //   });
-//   // });
+//   expect(statusCode).toBe(400);
+//   expect(body).not.toHaveProperty("token");
+//   expect(body).toMatchObject({
+//     message: "Field email is invalid",
+//   });
+// });
 // });
