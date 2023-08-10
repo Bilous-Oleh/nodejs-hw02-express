@@ -22,7 +22,14 @@ const userLoginSchema = Joi.object({
   }),
 });
 
+const userVerifySchema = Joi.object({
+  email: Joi.string().pattern(emailRegexp).required().messages({
+    "any.required": "Missing required email field",
+  }),
+});
+
 export default {
   userRegisterSchema,
   userLoginSchema,
+  userVerifySchema,
 };
